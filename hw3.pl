@@ -44,7 +44,6 @@ max([F|R], Max) :- max(R, RestMax), maxnums(F, RestMax, Max).
 %    as part of your solution.
 % ** You can always assume that the given LST is not empty. 
 % partitionable(LST).
-
  
 % partitionable([1, 2, 3, 4, 10]). -> true. because [10, 10]
 % partitionable([2, 1, 1]). -> true. because [2, 2]
@@ -56,7 +55,8 @@ max([F|R], Max) :- max(R, RestMax), maxnums(F, RestMax, Max).
 % Determine whether the given integer number does exist in the given 
 % list of integer numbers
 % elementExist(E, LST).
-
+elementExist(Element, [F|R]) :- F = Element, !.
+elementExist(Element, [F|R]) :- elementExist(Element, R). 
 
 % elementExist(1, [1, 2, 3]). -> true.
 % elementExist(1, []). -> false.
