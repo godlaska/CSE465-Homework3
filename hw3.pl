@@ -30,7 +30,8 @@ sum([First|Rest], Result) :- sum(Rest, Sum), Result is Sum + First.
 %    as part of your solution.
 % ** You can always assume that the given LST is not empty. 
 % max(LST, MAX).
-
+max([F], F).
+max([F|R], Max) :- max(R, RestMax), maxnums(F, RestMax, Max). 
 
 % max([-5, -5, -5], MAX). -> MAX = -5
 % max([1], MAX). -> MAX = 1
