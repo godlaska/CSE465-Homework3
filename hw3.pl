@@ -80,7 +80,15 @@ reverse([F|R], REVLST) :- reverse(R, ReversedRest), append(ReversedRest, [F], RE
 % #7 (Undergraduate/Graduate) (5/5 pts)
 % Determine the list of integer numbers that are only one digit numbers
 % collectOneDigits(LST, NEWLST). 
+collectOneDigits([], []).
 
+% Case if the number IS a single digit
+collectOneDigits([F|R], [F|DigitRest]) :- F > -10, F < 10,
+                                        collectOneDigits(R, DigitRest).
+
+% Case if the number is NOT a single digit
+collectOneDigits([F|R], DigitRest) :- (F =< -10; F >= 10),
+                                    collectOneDigits(R, DigitRest).
 
 % collectOneDigits([10, 90, -20], NEWLST). -> NEWLST = []
 % collectOneDigits([], NEWLST). -> NEWLST = []
