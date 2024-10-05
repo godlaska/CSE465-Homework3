@@ -44,6 +44,10 @@ max([F|R], Max) :- max(R, RestMax), maxnums(F, RestMax, Max).
 %    as part of your solution.
 % ** You can always assume that the given LST is not empty. 
 % partitionable(LST).
+partitionable(LST) :- max(LST, Max),                  % find max of the list
+                        sum(LST, TotalSum),             % find the sum of the list
+                        RestSum is TotalSum - Max,      % the sum of the rest of the elements should equal the max
+                        RestSum is Max.                 % check if the rest of the elements sum is the max
  
 % partitionable([1, 2, 3, 4, 10]). -> true. because [10, 10]
 % partitionable([2, 1, 1]). -> true. because [2, 2]
@@ -161,33 +165,3 @@ elementExist(Element, [F|R]) :- elementExist(Element, R).
 % inton','Hudson','Akron','Fowler','Hartford','Niles','Warren','Du
 % ndee','Marysville','Ray','Franklin','Mason','Lowell','Newport','
 % ------------------------------------------------
-% #10 ( -- /Graduate) (0/10 pts)
-* ** Only for Graduate Studetns **
-% Download the 'parse.pl' from canvas and study it.
-% Write Prolog rules to parse simple English sentences 
-% (similar to how it was done in parse.pl). The difference here is that 
-% the number (i.e., plurality) of the noun phrase and verb phrase must match. 
-% That is, “The sun shines” and “The suns shine” is proper, 
-% whereas “The suns shines” and “The sun shine” are not. 
-% Make sure your code also includes the following vocabulary.
-% singular nouns: sun, bus, deer, grass, party
-% plural nouns: suns, buses, deer, grasses, parties
-% articles: a, an, the
-% adverbs: loudly, brightly
-% adjectives: yellow, big, brown, green, party
-% plural verbs: shine, continue, party, eat
-% singular verbs: shines, continues, parties, eats
-
-
-% sentence([the, party, bus, shines, brightly]). -> true.
-% sentence([the, big, party, continues]). -> true.
-% sentence([a, big, brown, deer, eats, loudly]). -> true.
-% sentence([big, brown, deer, eat, loudly]). -> true.
-% sentence([the, sun, shines, brightly]). -> true.
-% sentence([the, suns, shine, brightly]). -> true.
-% sentence([the, deer, eats, loudly]). -> true.
-% sentence([the, deer, eat, loudly]). -> true.
-% sentence([the, sun, shine, brightly]). -> false.
-%sentence([the, suns, shines, brightly]). -> false.
-% ------------------------------------------------
-
