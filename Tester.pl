@@ -4,6 +4,8 @@
 % Make sure this file and your 'hw3.pl' are in the same folder,
 % , and then run this command: "swipl -s Tester.pl".
 
+% cd('C:\\Users\\capta\\OneDrive\\Documents\\CSE 465\\Homework 3').
+
 
 :- initialization(main).
 
@@ -110,16 +112,6 @@ main :-
     getCommon('OH','MI', LLL), length(LLL, LL),
     writeln(LL),  % 131
 
-    writeln("------#10---------"),
-    %(sentence([the, party, bus, shines, brightly]) -> writeln(true); writeln(false)),
-    %(sentence([the, big, party, continues]) -> writeln(true); writeln(false)),
-    %(sentence([a, big, brown, deer, eats, loudly]) -> writeln(true); writeln(false)),
-    %(sentence([big, brown, deer, eat, loudly]) -> writeln(true); writeln(false)),
-    %(sentence([the, sun, shines, brightly]) -> writeln(true); writeln(false)),
-    %(sentence([the, suns, shine, brightly]) -> writeln(true); writeln(false)),
-    %(sentence([the, deer, eats, loudly]) -> writeln(true); writeln(false)),
-    %(sentence([the, deer, eat, loudly]) -> writeln(true); writeln(false)),
-    %(sentence([the, sun, shine, brightly]) -> writeln(true); writeln(false)),
-    %(sentence([the, suns, shines, brightly]) -> writeln(true); writeln(false)),
-
+    writeln("Press any key to exit."),
+    get_char(_),  % Waits for a single character input
     halt.
