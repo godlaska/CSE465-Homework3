@@ -112,6 +112,6 @@ main :-
     getCommon('OH','MI', LLL), length(LLL, LL),
     writeln(LL),  % 131
 
-    writeln("Press any key to exit."),
+    writeln("Press enter to exit."),
     get_char(_),  % Waits for a single character input
     halt.
